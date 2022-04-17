@@ -2,11 +2,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
+import { useLocation, useNavigate} from 'react-router-dom';
+
+import { useAuth } from '../hook/useAuth';
 
 
 
 
-function Register() {
+
+
+
+const Register = () => {
+
+const navigate = useNavigate();
+const location = useLocation();
+const {signin} = useAuth();
+const fromPage = location.state?.from?.pathname || '/';
+
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+}
+
   return (
 
 <>

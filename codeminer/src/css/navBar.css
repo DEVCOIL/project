@@ -1,0 +1,18 @@
+.topNav {
+    display: flex;
+    justify-content: space-between;
+    padding: ;
+    color: black;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.backButton{
+  border-radius: 50px;
+  padding: 10px 30px 10px 30px;
+}

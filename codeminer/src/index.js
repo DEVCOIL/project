@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import App from './App';
 import Register from './components/Register';
+import TopNav from './components/TopNav';
 import Profile from './components/Profile';
+import Architecture from './components/Architecture';
+import Testing from './components/Testing';
+
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,13 +24,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-
-  <BrowserRouter >
-    <App />
-        <Register />
-          <Profile />
-
-          </BrowserRouter>
+    <BrowserRouter >
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

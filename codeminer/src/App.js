@@ -1,55 +1,43 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
-import { Container, Row, Col, Form } from 'react-bootstrap';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom'
+import Register from './components/Register'
+import TopNav from './components/TopNav'
+import Testing from './components/Testing'
+import Profile from './components/Profile'
+import Password from './components/Password'
+import Architecture from './components/Architecture'
+import Code from './components/Code'
+
+import Documentation from './components/Documentation'
+import Settings from './components/Settings'
 
 
+import RequireAuth from './hoc/RequireAuth'
+
+import AuthProvider from './hoc/AuthProvider'
 
 
 
 function App() {
   return (
+    <>
+<AuthProvider>
+      <Routes>
 
-<>
+      <Route path="/" element={<RequireAuth> <TopNav /> </RequireAuth>}>
+       <Route index element={<RequireAuth> <Architecture /> </RequireAuth>} />
+        <Route path="/code" element={<RequireAuth> <Code /> </RequireAuth>} />
+        <Route path="/documentation" element={<RequireAuth> <Documentation /> </RequireAuth>} />
+       <Route path="/testing" element={<RequireAuth> <Testing /> </RequireAuth>} />
+        <Route path="/settings" element={<RequireAuth> <Settings /> </RequireAuth>} />
+      <Route path="/profile" element={<RequireAuth> <Profile /> </RequireAuth>} />
 
+       <Route path="/password" element={<Password />} />
+        <Route path="/" element={<Register />} />
 
-
-
-<div className="wrap" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh' }}>
-
-<Row className="mx-0" style={{width: '400px' }}>
-
-
-<h2 as={Col}>Войти</h2>
-
-    <Form as={Col} >
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-
-    <Form.Control type="email" placeholder="Email" />
-
-  </Form.Group>
-
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-
-    <Form.Control type="password" placeholder="Пароль" />
-  </Form.Group>
-
-<Row className="mx-0">
-  <Button as={Col} style={{marginRight: '20px' }} variant="primary" type="enter">
-    Войти
-  </Button>
-  <Button as={Col}  variant="outline-secondary" type="register">
-    Зарегистрироваться
-  </Button>
-  </Row>
-</Form>
-</Row>
-</div>
-
-</>
-
-
-  );
+        </Route>
+      </Routes>
+      </AuthProvider>
+    </>
+  )
 }
-
 export default App;
